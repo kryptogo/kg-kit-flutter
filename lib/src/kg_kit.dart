@@ -4,10 +4,6 @@ final kgThemeDataStateProvider = StateProvider<KgThemeData>((ref) {
   return KgThemeData();
 });
 
-extension KgThemeDataExtension on ThemeData {
-  KgThemeData get kgThemeData => KgThemeData();
-}
-
 class KgKit extends StatefulWidget {
   const KgKit({Key? key, required this.child}) : super(key: key);
   final Widget child;
