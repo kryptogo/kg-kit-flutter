@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ]),
             GestureDetector(
               onTap: () {
-                KgKit.of(context).set(KgThemeData().toJson());
+                KgKit.of(context).setFontFamily('Anton');
               },
               child: Container(
                 decoration: BoxDecoration(

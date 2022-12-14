@@ -46,20 +46,25 @@ void main() {
   }
 ```
 
-## dark mode trigger
+### set dark mode
 
-Trigger contain `onTap` method. What you have to do is place your widget under trigger widget
+You can easily change to dark mode by calling `setDarkMode`
 
 ```dart
-KgChangeThemeTrigger(
-  child: yourWidget
-  ),
-),
+KgKit.of(context).setDarkMode(!isDark);
 ```
 
-## add fonts supports
+### set Theme Data
 
-you can add `.ttf` file under `lib/fonts`. And add following code in your app's `pubspec.yaml`
+If you want customize your `themeData`. You can use `set` to import your own themeData
+
+```dart
+KgKit.of(context).set(ThemeData);
+```
+
+### add fonts supports
+
+you can add `.ttf` file under `lib/fonts`. And add following code in your flutter directory `pubspec.yaml`
 
 ```yaml
 fonts:
@@ -70,4 +75,10 @@ fonts:
         weight: 500
       - asset: packages/kg_kit/fonts/awesomeFont-Bold.ttf
         weight: 700
+```
+
+Then set `FontFamily`
+
+```dart
+KgKit.of(context).setFontFamily('awesomeFont');
 ```

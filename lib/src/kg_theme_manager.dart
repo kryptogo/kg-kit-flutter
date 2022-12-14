@@ -23,4 +23,10 @@ class KgThemeManager {
       isDark: isDark,
     );
   }
+
+  void setFontFamily(String fontFamily) {
+    final stateNotifier = ProviderScope.containerOf(context, listen: false)
+        .read(kgThemeDataStateProvider.notifier);
+    stateNotifier.state = stateNotifier.state.copyWith(fontFamily: fontFamily);
+  }
 }
