@@ -38,99 +38,123 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          widget.title,
-          style: Theme.of(context).textTheme.headline2,
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              ...[DefaultTheme.poke, DefaultTheme.blue, DefaultTheme.green].map(
-                (data) {
-                  return GestureDetector(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Color Scheme",
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  GestureDetector(
                     onTap: () {
-                      KgKit.of(context).set(data);
+                      KgKit.of(context).set(KgThemeData().toJson());
                     },
                     child: Container(
                       width: 30,
                       height: 30,
                       margin: const EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
-                        color: Color(data["primaryValue"]),
                         shape: BoxShape.circle,
+                        border: Border.all(
+                            color: Theme.of(context).colorScheme.onPrimary),
                       ),
                     ),
-                  );
+                  ),
+                  ...[DefaultTheme.poke, DefaultTheme.blue, DefaultTheme.green]
+                      .map(
+                    (data) {
+                      return GestureDetector(
+                        onTap: () {
+                          KgKit.of(context).set(data);
+                        },
+                        child: Container(
+                          width: 30,
+                          height: 30,
+                          margin: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            color: Color(data["primaryValue"]),
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      );
+                    },
+                  ).toList(),
+                ],
+              ),
+              const SizedBox(height: 16.0),
+              Text(
+                "Color Scheme",
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              Row(
+                children: [
+                  ...['Barlow', 'Anton'].map(
+                    (fontFamily) => GestureDetector(
+                      onTap: () {
+                        KgKit.of(context).setFontFamily(fontFamily);
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(4.0),
+                        margin: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Theme.of(context).colorScheme.onPrimary),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          fontFamily,
+                          style: Theme.of(context).textTheme.headline4,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16.0),
+              Text(
+                "Color Scheme",
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Switch.adaptive(
+                  activeColor: Theme.of(context).primaryColor,
+                  value: KgKit.of(context).themeData.isDark,
+                  onChanged: (value) {
+                    final isDark = KgKit.of(context).themeData.isDark;
+                    KgKit.of(context).setDarkMode(!isDark);
+                  },
+                ),
+              ),
+              const SizedBox(height: 16.0),
+              GestureDetector(
+                onTap: () {
+                  final output = KgKit.of(context).themeData.toJson();
+                  print('=======output : $output=========');
                 },
-              ).toList(),
-            ]),
-            GestureDetector(
-              onTap: () {
-                KgKit.of(context).setFontFamily('Anton');
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                      color: Theme.of(context).colorScheme.onPrimary),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Default Theme',
-                  style: Theme.of(context).textTheme.headline4?.copyWith(
-                        height: 1,
-                      ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Theme.of(context).colorScheme.onPrimary),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Export Theme',
+                    style: Theme.of(context).textTheme.headline4?.copyWith(
+                          height: 1,
+                        ),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 16.0),
-            GestureDetector(
-              onTap: () {
-                final isDark = KgKit.of(context).themeData.isDark;
-                KgKit.of(context).setDarkMode(!isDark);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                      color: Theme.of(context).colorScheme.onPrimary),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  KgKit.of(context).themeData.isDark
-                      ? 'Light Mode'
-                      : 'Dark Mode',
-                  style: Theme.of(context).textTheme.headline4?.copyWith(
-                        height: 1,
-                      ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 16.0),
-            GestureDetector(
-              onTap: () {
-                final output = KgKit.of(context).themeData.toJson();
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                      color: Theme.of(context).colorScheme.onPrimary),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Export Theme',
-                  style: Theme.of(context).textTheme.headline4?.copyWith(
-                        height: 1,
-                      ),
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
