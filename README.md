@@ -54,15 +54,7 @@ You can easily change to dark mode by calling `setDarkMode`
 KgKit.of(context).setDarkMode(!isDark);
 ```
 
-### set Theme Data
-
-If you want customize your `themeData`. You can use `set` to import your own themeData
-
-```dart
-KgKit.of(context).set(ThemeData);
-```
-
-### add fonts supports
+### set fonts
 
 you can add `.ttf` file under `lib/fonts`. And add following code in your flutter directory `pubspec.yaml`
 
@@ -81,4 +73,34 @@ Then set `FontFamily`
 
 ```dart
 KgKit.of(context).setFontFamily('awesomeFont');
+```
+
+### set theme data
+
+If you want customize your `themeData`. You can use `set` to import your own themeData.
+
+```dart
+KgKit.of(context).set(ThemeData);
+```
+
+```json
+// Theme data example
+{
+    "innerGapValue": 8,
+    "borderRadiusValue": 8,
+    "paddingValue": 10,
+    "primaryValue": 4279347455,
+    "primaryDarkValue": 4280361249,
+    "primaryContainerValue": 4294967295,
+    "primaryContainerDarkValue": 4281216558,
+    "secondaryValue": 4278198104,
+    "secondaryDarkValue": 4281880063,
+    "secondaryContainerValue": 4294955632,
+    "tertiaryValue": 4284243093,
+    "tertiaryContainerValue": 4291353592,
+    "backgroundValue": 4294921292,
+    "backgroundDarkValue": 4291312443,
+    "textColorValue": 4278198104,
+    "textColorDarkValue": 4294967295,
+  };
 ```
