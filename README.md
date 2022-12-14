@@ -1,23 +1,10 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
 A Flutter UI Kit from KyrptoGO
 
 ## Getting started
 
 ```
 # add this line to your dependencies
-kg_kit:
+kg_kit: 'version'
 ```
 
 ```dart
@@ -89,18 +76,18 @@ KgKit.of(context).set(ThemeData);
     "innerGapValue": 8,
     "borderRadiusValue": 8,
     "paddingValue": 10,
-    "primaryValue": 4279347455,
-    "primaryDarkValue": 4280361249,
-    "primaryContainerValue": 4294967295,
-    "primaryContainerDarkValue": 4281216558,
-    "secondaryValue": 4278198104,
-    "secondaryDarkValue": 4281880063,
-    "secondaryContainerValue": 4294955632,
-    "tertiaryValue": 4284243093,
-    "tertiaryContainerValue": 4291353592,
-    "backgroundValue": 4294921292,
-    "backgroundDarkValue": 4291312443,
-    "textColorValue": 4278198104,
-    "textColorDarkValue": 4294967295,
+    "primaryValue": 0xFF11A8FF,
+    "primaryDarkValue": 0xFF3FB9FF,
+    "primaryContainerValue": 0xFFFFFFFF,
+    "primaryContainerDarkValue": 0xFF2E2E2E,
+    "secondaryValue": 0xFF0B42A8,
+    "secondaryDarkValue": 0xFF384DFF,
+    "secondaryContainerValue": 0xFFFFD270,
+    "tertiaryValue": 0xFF5C5C95,
+    "tertiaryContainerValue": 0xFFC8DBF8,
+    "backgroundValue": 0xFFF3F0EA,
+    "backgroundDarkValue": 0xFF191919,
+    "textColorValue": 0xFF001F58,
+    "textColorDarkValue": 0xFFFFFFFF,
   };
 ```

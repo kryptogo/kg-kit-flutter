@@ -100,16 +100,26 @@ class _MyHomePageState extends State<MyHomePage> {
                         KgKit.of(context).setFontFamily(fontFamily);
                       },
                       child: Container(
-                        padding: const EdgeInsets.all(4.0),
+                        padding: const EdgeInsets.all(8.0),
                         margin: const EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
+                          color: fontFamily ==
+                                  KgKit.of(context).themeData.fontFamily
+                              ? Theme.of(context).primaryColor
+                              : Colors.transparent,
                           border: Border.all(
                               color: Theme.of(context).colorScheme.onPrimary),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
                           fontFamily,
-                          style: Theme.of(context).textTheme.headline4,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline4
+                              ?.copyWith(
+                                height: 1,
+                                color: Theme.of(context).colorScheme.onPrimary,
+                              ),
                         ),
                       ),
                     ),
