@@ -138,7 +138,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   value: KgKit.of(context).themeData.isDark,
                   onChanged: (value) {
                     final isDark = KgKit.of(context).themeData.isDark;
-                    KgKit.of(context).setDarkMode(!isDark);
+                    KgKit.of(context).setThemeMode(
+                      isDark ? ThemeMode.light : ThemeMode.dark,
+                    );
                   },
                 ),
               ),

@@ -4,7 +4,7 @@ final kgThemeDataStateProvider = StateProvider<KgThemeData>((ref) {
   return KgThemeData();
 });
 
-class KgKit extends StatefulWidget {
+class KgKit extends StatelessWidget {
   const KgKit({Key? key, required this.child}) : super(key: key);
   final Widget child;
 
@@ -13,14 +13,9 @@ class KgKit extends StatefulWidget {
   }
 
   @override
-  State<KgKit> createState() => _KgKitState();
-}
-
-class _KgKitState extends State<KgKit> {
-  @override
   Widget build(BuildContext context) {
     return ProviderScope(
-      child: widget.child,
+      child: child,
     );
   }
 }
