@@ -7,6 +7,11 @@ final kgThemeDataStateProvider = StateProvider<KgThemeData>((ref) {
 class KgKit extends StatelessWidget {
   const KgKit({Key? key, required this.child}) : super(key: key);
   final Widget child;
+  static KgThemeData initData = KgThemeData();
+
+  static init(KgThemeData data) {
+    initData = data;
+  }
 
   static KgThemeManager of(BuildContext context) {
     return KgThemeManager(context);
@@ -15,6 +20,11 @@ class KgKit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
+      overrides: [
+        kgThemeDataStateProvider.overrideWithValue(
+          StateController(initData),
+        ),
+      ],
       child: child,
     );
   }
