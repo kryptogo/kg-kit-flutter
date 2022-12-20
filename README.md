@@ -35,10 +35,16 @@ void main() {
 
 ### set dark mode
 
-You can easily change to dark mode by calling `setDarkMode`
+You can easily change to dark mode by calling `setThemeMode`
 
 ```dart
-KgKit.of(context).setDarkMode(!isDark);
+ThemeMode {
+  system,
+  light,
+  dark,
+}
+
+KgKit.of(context).setThemeMode(ThemeMode);
 ```
 
 ### set fonts
@@ -64,14 +70,20 @@ KgKit.of(context).setFontFamily('awesomeFont');
 
 ### set theme data
 
-If you want customize your `themeData`. You can use `set` to import your own themeData.
+If you want customize your `themeData`. You can use `setThemeData` to override your own themeData.
 
 ```dart
-KgKit.of(context).set(ThemeData);
+KgKit.of(context).setThemeData(ThemeData);
 ```
 
-```json
-// Theme data example
+Or you can load JsonFile using `set`
+
+```dart
+KgKit.of(context).setThemeData(JsonData);
+```
+
+```
+// Theme JsonData example
 {
     "innerGapValue": 8,
     "borderRadiusValue": 8,

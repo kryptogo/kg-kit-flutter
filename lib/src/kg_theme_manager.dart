@@ -17,6 +17,12 @@ class KgThemeManager {
     );
   }
 
+  void setThemeData(KgThemeData themeData) {
+    final stateNotifier = ProviderScope.containerOf(context, listen: false)
+        .read(kgThemeDataStateProvider.notifier);
+    stateNotifier.state = themeData;
+  }
+
   void setThemeMode(ThemeMode mode) {
     var brightness = SchedulerBinding.instance?.window.platformBrightness;
     bool isDarkMode;
