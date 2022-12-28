@@ -425,9 +425,9 @@ packages:
   storybook_flutter:
     dependency: "direct main"
     description:
-      name: storybook_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../../../flutter_lib_local/storybook_flutter/packages/storybook_flutter"
+      relative: true
+    source: path
     version: "0.11.3"
   stream_channel:
     dependency: transitive
