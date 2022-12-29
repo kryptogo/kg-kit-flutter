@@ -58,11 +58,42 @@ class _MyHomePageState extends State<MyHomePage> {
           description: 'Button',
           builder: (context) => StoryWidget(
             child: Center(
-              child: KgTestWidget(
-                label: context.knobs.text(
-                  label: 'label',
-                  initial: 'Button',
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  KgButton(
+                    type: KgButtonType.primary,
+                    onTap: () async {
+                      await Future.delayed(const Duration(seconds: 1));
+                    },
+                    label: context.knobs.text(
+                      label: 'label',
+                      initial: 'Button',
+                    ),
+                  ),
+                  h8,
+                  KgButton(
+                    type: KgButtonType.outline,
+                    onTap: () async {
+                      await Future.delayed(const Duration(seconds: 1));
+                    },
+                    label: context.knobs.text(
+                      label: 'label',
+                      initial: 'Button',
+                    ),
+                  ),
+                  h8,
+                  KgButton(
+                    type: KgButtonType.text,
+                    onTap: () async {
+                      await Future.delayed(const Duration(seconds: 1));
+                    },
+                    label: context.knobs.text(
+                      label: 'label',
+                      initial: 'Button',
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

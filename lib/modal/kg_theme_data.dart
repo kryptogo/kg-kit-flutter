@@ -65,8 +65,8 @@ class KgThemeData with _$KgThemeData {
     @Default('Barlow') String fontFamily,
     @Default(0xFFFFC211) int primaryValue,
     @Default(0xFFFFDF81) int primaryDarkValue,
-    @Default(0xFFFFFFFF) int primaryContainerValue,
-    @Default(0xFF2E2E2E) int primaryContainerDarkValue,
+    @Default(0xFFFFDF81) int primaryContainerValue,
+    @Default(0xFFFFEAAB) int primaryContainerDarkValue,
     @Default(0xFF001F58) int secondaryValue,
     @Default(0xFFFFC64C) int secondaryDarkValue,
     @Default(0xFFFFD270) int secondaryContainerValue,
@@ -80,7 +80,7 @@ class KgThemeData with _$KgThemeData {
     @Default(0xFFFF94B7) int errorColorDarkValue,
   }) = _KgThemeData;
 
-  Radius get borderRadius => Radius.circular(borderRadiusValue);
+  BorderRadius get borderRadius => BorderRadius.circular(borderRadiusValue);
   Widget get innerGap => SizedBox(width: innerGapValue);
   EdgeInsets get padding => EdgeInsets.all(paddingValue);
   EdgeInsets get screenPadding => const EdgeInsets.symmetric(horizontal: 24);

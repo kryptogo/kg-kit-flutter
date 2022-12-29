@@ -4,10 +4,10 @@ final kgThemeDataStateProvider = StateProvider<KgThemeData>((ref) {
   return KgThemeData();
 });
 
-extension CustomThemeData on Theme {
-  KgThemeData ofKgThemeData(context) {
-    return KgThemeManager(context).themeData;
-  }
+extension CustomThemeData on BuildContext {
+  ThemeData get colors => Theme.of(this);
+  TextTheme get textTheme => Theme.of(this).textTheme;
+  KgThemeData get themeUtils => KgKit.of(this).themeData;
 }
 
 class KgKit extends StatelessWidget {
