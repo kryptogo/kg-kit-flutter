@@ -38,6 +38,8 @@ mixin _$KgThemeData {
   int get backgroundDarkValue => throw _privateConstructorUsedError;
   int get textColorValue => throw _privateConstructorUsedError;
   int get textColorDarkValue => throw _privateConstructorUsedError;
+  int get errorColorValue => throw _privateConstructorUsedError;
+  int get errorColorDarkValue => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -68,7 +70,9 @@ abstract class $KgThemeDataCopyWith<$Res> {
       int backgroundValue,
       int backgroundDarkValue,
       int textColorValue,
-      int textColorDarkValue});
+      int textColorDarkValue,
+      int errorColorValue,
+      int errorColorDarkValue});
 }
 
 /// @nodoc
@@ -99,6 +103,8 @@ class _$KgThemeDataCopyWithImpl<$Res> implements $KgThemeDataCopyWith<$Res> {
     Object? backgroundDarkValue = freezed,
     Object? textColorValue = freezed,
     Object? textColorDarkValue = freezed,
+    Object? errorColorValue = freezed,
+    Object? errorColorDarkValue = freezed,
   }) {
     return _then(_value.copyWith(
       isDark: isDark == freezed
@@ -173,6 +179,14 @@ class _$KgThemeDataCopyWithImpl<$Res> implements $KgThemeDataCopyWith<$Res> {
           ? _value.textColorDarkValue
           : textColorDarkValue // ignore: cast_nullable_to_non_nullable
               as int,
+      errorColorValue: errorColorValue == freezed
+          ? _value.errorColorValue
+          : errorColorValue // ignore: cast_nullable_to_non_nullable
+              as int,
+      errorColorDarkValue: errorColorDarkValue == freezed
+          ? _value.errorColorDarkValue
+          : errorColorDarkValue // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -202,7 +216,9 @@ abstract class _$$_KgThemeDataCopyWith<$Res>
       int backgroundValue,
       int backgroundDarkValue,
       int textColorValue,
-      int textColorDarkValue});
+      int textColorDarkValue,
+      int errorColorValue,
+      int errorColorDarkValue});
 }
 
 /// @nodoc
@@ -235,6 +251,8 @@ class __$$_KgThemeDataCopyWithImpl<$Res> extends _$KgThemeDataCopyWithImpl<$Res>
     Object? backgroundDarkValue = freezed,
     Object? textColorValue = freezed,
     Object? textColorDarkValue = freezed,
+    Object? errorColorValue = freezed,
+    Object? errorColorDarkValue = freezed,
   }) {
     return _then(_$_KgThemeData(
       isDark: isDark == freezed
@@ -309,6 +327,14 @@ class __$$_KgThemeDataCopyWithImpl<$Res> extends _$KgThemeDataCopyWithImpl<$Res>
           ? _value.textColorDarkValue
           : textColorDarkValue // ignore: cast_nullable_to_non_nullable
               as int,
+      errorColorValue: errorColorValue == freezed
+          ? _value.errorColorValue
+          : errorColorValue // ignore: cast_nullable_to_non_nullable
+              as int,
+      errorColorDarkValue: errorColorDarkValue == freezed
+          ? _value.errorColorDarkValue
+          : errorColorDarkValue // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -323,7 +349,7 @@ class _$_KgThemeData extends _KgThemeData {
       this.paddingValue = 10,
       this.fontFamily = 'Barlow',
       this.primaryValue = 0xFFFFC211,
-      this.primaryDarkValue = 0xFF212121,
+      this.primaryDarkValue = 0xFFFFDF81,
       this.primaryContainerValue = 0xFFFFFFFF,
       this.primaryContainerDarkValue = 0xFF2E2E2E,
       this.secondaryValue = 0xFF001F58,
@@ -334,7 +360,9 @@ class _$_KgThemeData extends _KgThemeData {
       this.backgroundValue = 0xFFFFC64C,
       this.backgroundDarkValue = 0xFF212121,
       this.textColorValue = 0xFF001F58,
-      this.textColorDarkValue = 0xFFFFFFFF})
+      this.textColorDarkValue = 0xFFFFFFFF,
+      this.errorColorValue = 0xFFE1004A,
+      this.errorColorDarkValue = 0xFFFF94B7})
       : super._();
 
   factory _$_KgThemeData.fromJson(Map<String, dynamic> json) =>
@@ -394,10 +422,16 @@ class _$_KgThemeData extends _KgThemeData {
   @override
   @JsonKey()
   final int textColorDarkValue;
+  @override
+  @JsonKey()
+  final int errorColorValue;
+  @override
+  @JsonKey()
+  final int errorColorDarkValue;
 
   @override
   String toString() {
-    return 'KgThemeData(isDark: $isDark, innerGapValue: $innerGapValue, borderRadiusValue: $borderRadiusValue, paddingValue: $paddingValue, fontFamily: $fontFamily, primaryValue: $primaryValue, primaryDarkValue: $primaryDarkValue, primaryContainerValue: $primaryContainerValue, primaryContainerDarkValue: $primaryContainerDarkValue, secondaryValue: $secondaryValue, secondaryDarkValue: $secondaryDarkValue, secondaryContainerValue: $secondaryContainerValue, tertiaryValue: $tertiaryValue, tertiaryContainerValue: $tertiaryContainerValue, backgroundValue: $backgroundValue, backgroundDarkValue: $backgroundDarkValue, textColorValue: $textColorValue, textColorDarkValue: $textColorDarkValue)';
+    return 'KgThemeData(isDark: $isDark, innerGapValue: $innerGapValue, borderRadiusValue: $borderRadiusValue, paddingValue: $paddingValue, fontFamily: $fontFamily, primaryValue: $primaryValue, primaryDarkValue: $primaryDarkValue, primaryContainerValue: $primaryContainerValue, primaryContainerDarkValue: $primaryContainerDarkValue, secondaryValue: $secondaryValue, secondaryDarkValue: $secondaryDarkValue, secondaryContainerValue: $secondaryContainerValue, tertiaryValue: $tertiaryValue, tertiaryContainerValue: $tertiaryContainerValue, backgroundValue: $backgroundValue, backgroundDarkValue: $backgroundDarkValue, textColorValue: $textColorValue, textColorDarkValue: $textColorDarkValue, errorColorValue: $errorColorValue, errorColorDarkValue: $errorColorDarkValue)';
   }
 
   @override
@@ -439,31 +473,38 @@ class _$_KgThemeData extends _KgThemeData {
             const DeepCollectionEquality()
                 .equals(other.textColorValue, textColorValue) &&
             const DeepCollectionEquality()
-                .equals(other.textColorDarkValue, textColorDarkValue));
+                .equals(other.textColorDarkValue, textColorDarkValue) &&
+            const DeepCollectionEquality()
+                .equals(other.errorColorValue, errorColorValue) &&
+            const DeepCollectionEquality()
+                .equals(other.errorColorDarkValue, errorColorDarkValue));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isDark),
-      const DeepCollectionEquality().hash(innerGapValue),
-      const DeepCollectionEquality().hash(borderRadiusValue),
-      const DeepCollectionEquality().hash(paddingValue),
-      const DeepCollectionEquality().hash(fontFamily),
-      const DeepCollectionEquality().hash(primaryValue),
-      const DeepCollectionEquality().hash(primaryDarkValue),
-      const DeepCollectionEquality().hash(primaryContainerValue),
-      const DeepCollectionEquality().hash(primaryContainerDarkValue),
-      const DeepCollectionEquality().hash(secondaryValue),
-      const DeepCollectionEquality().hash(secondaryDarkValue),
-      const DeepCollectionEquality().hash(secondaryContainerValue),
-      const DeepCollectionEquality().hash(tertiaryValue),
-      const DeepCollectionEquality().hash(tertiaryContainerValue),
-      const DeepCollectionEquality().hash(backgroundValue),
-      const DeepCollectionEquality().hash(backgroundDarkValue),
-      const DeepCollectionEquality().hash(textColorValue),
-      const DeepCollectionEquality().hash(textColorDarkValue));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(isDark),
+        const DeepCollectionEquality().hash(innerGapValue),
+        const DeepCollectionEquality().hash(borderRadiusValue),
+        const DeepCollectionEquality().hash(paddingValue),
+        const DeepCollectionEquality().hash(fontFamily),
+        const DeepCollectionEquality().hash(primaryValue),
+        const DeepCollectionEquality().hash(primaryDarkValue),
+        const DeepCollectionEquality().hash(primaryContainerValue),
+        const DeepCollectionEquality().hash(primaryContainerDarkValue),
+        const DeepCollectionEquality().hash(secondaryValue),
+        const DeepCollectionEquality().hash(secondaryDarkValue),
+        const DeepCollectionEquality().hash(secondaryContainerValue),
+        const DeepCollectionEquality().hash(tertiaryValue),
+        const DeepCollectionEquality().hash(tertiaryContainerValue),
+        const DeepCollectionEquality().hash(backgroundValue),
+        const DeepCollectionEquality().hash(backgroundDarkValue),
+        const DeepCollectionEquality().hash(textColorValue),
+        const DeepCollectionEquality().hash(textColorDarkValue),
+        const DeepCollectionEquality().hash(errorColorValue),
+        const DeepCollectionEquality().hash(errorColorDarkValue)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -495,7 +536,9 @@ abstract class _KgThemeData extends KgThemeData {
       final int backgroundValue,
       final int backgroundDarkValue,
       final int textColorValue,
-      final int textColorDarkValue}) = _$_KgThemeData;
+      final int textColorDarkValue,
+      final int errorColorValue,
+      final int errorColorDarkValue}) = _$_KgThemeData;
   _KgThemeData._() : super._();
 
   factory _KgThemeData.fromJson(Map<String, dynamic> json) =
@@ -537,6 +580,10 @@ abstract class _KgThemeData extends KgThemeData {
   int get textColorValue;
   @override
   int get textColorDarkValue;
+  @override
+  int get errorColorValue;
+  @override
+  int get errorColorDarkValue;
   @override
   @JsonKey(ignore: true)
   _$$_KgThemeDataCopyWith<_$_KgThemeData> get copyWith =>

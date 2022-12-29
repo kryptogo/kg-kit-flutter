@@ -14,7 +14,7 @@ _$_KgThemeData _$$_KgThemeDataFromJson(Map<String, dynamic> json) =>
       paddingValue: (json['paddingValue'] as num?)?.toDouble() ?? 10,
       fontFamily: json['fontFamily'] as String? ?? 'Barlow',
       primaryValue: json['primaryValue'] as int? ?? 0xFFFFC211,
-      primaryDarkValue: json['primaryDarkValue'] as int? ?? 0xFF212121,
+      primaryDarkValue: json['primaryDarkValue'] as int? ?? 0xFFFFDF81,
       primaryContainerValue:
           json['primaryContainerValue'] as int? ?? 0xFFFFFFFF,
       primaryContainerDarkValue:
@@ -30,6 +30,8 @@ _$_KgThemeData _$$_KgThemeDataFromJson(Map<String, dynamic> json) =>
       backgroundDarkValue: json['backgroundDarkValue'] as int? ?? 0xFF212121,
       textColorValue: json['textColorValue'] as int? ?? 0xFF001F58,
       textColorDarkValue: json['textColorDarkValue'] as int? ?? 0xFFFFFFFF,
+      errorColorValue: json['errorColorValue'] as int? ?? 0xFFE1004A,
+      errorColorDarkValue: json['errorColorDarkValue'] as int? ?? 0xFFFF94B7,
     );
 
 Map<String, dynamic> _$$_KgThemeDataToJson(_$_KgThemeData instance) =>
@@ -52,4 +54,6 @@ Map<String, dynamic> _$$_KgThemeDataToJson(_$_KgThemeData instance) =>
       'backgroundDarkValue': instance.backgroundDarkValue,
       'textColorValue': instance.textColorValue,
       'textColorDarkValue': instance.textColorDarkValue,
+      'errorColorValue': instance.errorColorValue,
+      'errorColorDarkValue': instance.errorColorDarkValue,
     };

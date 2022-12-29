@@ -5,10 +5,12 @@ class KgMaterialApp extends ConsumerStatefulWidget {
     Key? key,
     required this.home,
     required this.title,
+    this.isDark,
   }) : super(key: key);
 
   final Widget home;
   final String title;
+  final bool? isDark;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _KgMaterialAppState();
@@ -23,7 +25,9 @@ class _KgMaterialAppState extends ConsumerState<KgMaterialApp> {
       title: 'Flutter Demo',
       theme: kgThemeProvider.light(),
       darkTheme: kgThemeProvider.dark(),
-      themeMode: kgThemeProvider.isDark ? ThemeMode.dark : ThemeMode.light,
+      themeMode: widget.isDark != null
+          ? (widget.isDark! ? ThemeMode.dark : ThemeMode.light)
+          : (kgThemeProvider.isDark ? ThemeMode.dark : ThemeMode.light),
       debugShowCheckedModeBanner: false,
       home: widget.home,
     );

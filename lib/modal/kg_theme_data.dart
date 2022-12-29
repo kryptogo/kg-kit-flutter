@@ -64,7 +64,7 @@ class KgThemeData with _$KgThemeData {
     @Default(10) double paddingValue,
     @Default('Barlow') String fontFamily,
     @Default(0xFFFFC211) int primaryValue,
-    @Default(0xFF212121) int primaryDarkValue,
+    @Default(0xFFFFDF81) int primaryDarkValue,
     @Default(0xFFFFFFFF) int primaryContainerValue,
     @Default(0xFF2E2E2E) int primaryContainerDarkValue,
     @Default(0xFF001F58) int secondaryValue,
@@ -76,6 +76,8 @@ class KgThemeData with _$KgThemeData {
     @Default(0xFF212121) int backgroundDarkValue,
     @Default(0xFF001F58) int textColorValue,
     @Default(0xFFFFFFFF) int textColorDarkValue,
+    @Default(0xFFE1004A) int errorColorValue,
+    @Default(0xFFFF94B7) int errorColorDarkValue,
   }) = _KgThemeData;
 
   Radius get borderRadius => Radius.circular(borderRadiusValue);
@@ -98,6 +100,54 @@ class KgThemeData with _$KgThemeData {
   Color get backgroundDark => Color(backgroundDarkValue);
   Color get textColor => Color(textColorValue);
   Color get textColorDark => Color(textColorDarkValue);
+  Color get error => Color(errorColorValue);
+  Color get errorDark => Color(errorColorDarkValue);
+
+  TextStyle get largeText => TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+        fontFamily: fontFamily,
+        color: isDark ? textColorDark : textColor,
+      );
+  TextStyle get headline1 => customTextTheme(isDark: isDark).headline1!;
+  TextStyle get headline2 => customTextTheme(isDark: isDark).headline2!;
+  TextStyle get headline3 => customTextTheme(isDark: isDark).headline3!;
+  TextStyle get headline4 => customTextTheme(isDark: isDark).headline4!;
+  TextStyle get headline5 => customTextTheme(isDark: isDark).headline5!;
+  TextStyle get headline6 => customTextTheme(isDark: isDark).headline6!;
+  TextStyle get subtitle1 => customTextTheme(isDark: isDark).subtitle1!;
+  TextStyle get subtitle1Bold => customTextTheme(isDark: isDark)
+      .subtitle1!
+      .copyWith(fontWeight: FontWeight.bold);
+  TextStyle get subtitle2 => customTextTheme(isDark: isDark).subtitle2!;
+  TextStyle get bodyText1 => customTextTheme(isDark: isDark).bodyText1!;
+  TextStyle get bodyText1Bold =>
+      customTextTheme(isDark: isDark).bodyText1!.copyWith(
+            fontWeight: FontWeight.bold,
+          );
+  TextStyle get bodyText2 => customTextTheme(isDark: isDark).bodyText2!;
+  TextStyle get bodyText2Bold =>
+      customTextTheme(isDark: isDark).bodyText2!.copyWith(
+            fontWeight: FontWeight.bold,
+          );
+  TextStyle get button => customTextTheme(isDark: isDark).button!;
+  TextStyle get buttonSm => customTextTheme(isDark: isDark).button!.copyWith(
+        fontSize: 12,
+      );
+  TextStyle get caption1 => customTextTheme(isDark: isDark).caption!;
+  TextStyle get caption1Bold =>
+      customTextTheme(isDark: isDark).caption!.copyWith(
+            fontWeight: FontWeight.bold,
+          );
+  TextStyle get caption2 => customTextTheme(isDark: isDark).caption!.copyWith(
+        fontSize: 11,
+      );
+  TextStyle get caption2Bold =>
+      customTextTheme(isDark: isDark).caption!.copyWith(
+            fontSize: 11,
+            fontWeight: FontWeight.bold,
+          );
+  TextStyle get overline => customTextTheme(isDark: isDark).overline!;
 
   BoxShadow get boxShadow => BoxShadow(
         color: isDark
@@ -130,91 +180,78 @@ class KgThemeData with _$KgThemeData {
   TextTheme customTextTheme({required bool isDark}) {
     return TextTheme(
       headline1: TextStyle(
-        letterSpacing: 0.02,
         fontFamily: fontFamily,
         fontSize: 24,
         fontWeight: FontWeight.bold,
         color: isDark ? textColorDark : textColor,
       ),
       headline2: TextStyle(
-        letterSpacing: 0.02,
-        fontFamily: fontFamily,
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-        color: isDark ? textColorDark : textColor,
-      ),
-      headline3: TextStyle(
-        letterSpacing: 0.02,
         fontFamily: fontFamily,
         fontSize: 18,
         fontWeight: FontWeight.bold,
         color: isDark ? textColorDark : textColor,
       ),
+      headline3: TextStyle(
+        fontFamily: fontFamily,
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+        color: isDark ? textColorDark : textColor,
+      ),
       headline4: TextStyle(
-        letterSpacing: 0.02,
         fontFamily: fontFamily,
         fontSize: 16,
         fontWeight: FontWeight.bold,
         color: isDark ? textColorDark : textColor,
       ),
       headline5: TextStyle(
-        letterSpacing: 0.02,
         fontFamily: fontFamily,
         fontSize: 14,
         fontWeight: FontWeight.bold,
         color: isDark ? textColorDark : textColor,
       ),
       headline6: TextStyle(
-        letterSpacing: 0.02,
         fontFamily: fontFamily,
         fontSize: 12,
         fontWeight: FontWeight.bold,
         color: isDark ? textColorDark : textColor,
       ),
       bodyText1: TextStyle(
-        letterSpacing: 0.02,
         fontFamily: fontFamily,
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: FontWeight.normal,
         color: isDark ? textColorDark : textColor,
       ),
       bodyText2: TextStyle(
-        letterSpacing: 0.02,
-        fontFamily: fontFamily,
-        fontSize: 12,
-        fontWeight: FontWeight.normal,
-        color: isDark ? textColorDark : textColor,
-      ),
-      subtitle1: TextStyle(
-        letterSpacing: 0.02,
         fontFamily: fontFamily,
         fontSize: 14,
         fontWeight: FontWeight.normal,
         color: isDark ? textColorDark : textColor,
       ),
+      subtitle1: TextStyle(
+        fontFamily: fontFamily,
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        color: isDark ? textColorDark : textColor,
+      ),
       subtitle2: TextStyle(
-        letterSpacing: 0.02,
         fontFamily: fontFamily,
         fontSize: 12,
         fontWeight: FontWeight.normal,
         color: isDark ? textColorDark : textColor,
       ),
       button: TextStyle(
-        letterSpacing: 0.02,
         fontFamily: fontFamily,
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: FontWeight.bold,
         color: isDark ? textColorDark : textColor,
       ),
       caption: TextStyle(
-        letterSpacing: 0.02,
         fontFamily: fontFamily,
         fontSize: 12,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w500,
         color: isDark ? textColorDark : textColor,
       ),
       overline: TextStyle(
-        letterSpacing: 0.02,
         fontFamily: fontFamily,
         fontSize: 10,
         fontWeight: FontWeight.normal,
@@ -233,6 +270,7 @@ class KgThemeData with _$KgThemeData {
           secondaryContainer: secondaryContainer,
           tertiary: tertiary,
           tertiaryContainer: tertiaryContainer,
+          error: error,
         ),
         dark: FlexSchemeColor(
           primary: primaryDark,
@@ -241,6 +279,7 @@ class KgThemeData with _$KgThemeData {
           secondaryContainer: secondaryContainer,
           tertiary: tertiary,
           tertiaryContainer: tertiaryContainer,
+          error: errorDark,
         ),
       );
   factory KgThemeData.fromJson(Map<String, dynamic> json) =>
