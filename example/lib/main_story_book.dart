@@ -1,5 +1,4 @@
 import 'package:example/widget/common/button/button_story.dart';
-import 'package:example/widget/story_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:kg_kit/kg_kit.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
@@ -81,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
             builder: (context) => const Text("Tab Bar"),
           ),
           Story(
-            name: 'Navigation/Dot Paginat',
+            name: 'Navigation/Dot Paginate',
             description: 'Tab Bar',
             builder: (context) => const Text("Tab Bar"),
           ),
@@ -360,7 +359,7 @@ class _MyHomePageState extends State<MyHomePage> {
             builder: (context) => const Text("Tab Bar"),
           ),
           Story(
-            name: 'Feedback/Skeletion',
+            name: 'Feedback/Skeleton',
             description: 'Inputs',
             builder: (context) => const Text("Tab Bar"),
           ),
