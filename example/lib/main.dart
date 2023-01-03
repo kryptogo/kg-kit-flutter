@@ -148,7 +148,6 @@ class _MyHomePageState extends State<MyHomePage> {
               GestureDetector(
                 onTap: () {
                   final output = KgKit.of(context).themeData.toJson();
-                  print('=======output : $output=========');
                 },
                 child: Container(
                   decoration: BoxDecoration(
