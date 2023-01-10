@@ -9,6 +9,7 @@ export 'modal/kg_theme_data.dart';
 
 export 'src/widgets/kg_test_widget.dart';
 export 'src/widgets/kg_button.dart';
+export 'src/widgets/kg_carousel.dart';
 export 'src/widgets/utils/kg_utils.dart';
 
 part 'src/kg_kit.dart';
