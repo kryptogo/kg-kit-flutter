@@ -119,10 +119,12 @@ class _KgButtonState extends State<KgButton> {
               maintainSize: true,
               maintainAnimation: true,
               maintainState: true,
-              child: Text(
-                widget.label,
-                style: context.textTheme.button?.copyWith(
-                  color: getTextColor(),
+              child: Center(
+                child: Text(
+                  widget.label,
+                  style: context.textTheme.button?.copyWith(
+                    color: getTextColor(),
+                  ),
                 ),
               ),
             ),
